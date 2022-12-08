@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title>{{ event_name }} - Event List</title>
+    </head>
+    <body>
+        <h1>My Event List!</h1>
+
+        <form action="/events" method="post">
+          <label for="Date"></label>Date
+          <input type="date" name="Date" id="date">
+          <br><label for="Event"></label>Event
+          <input type="text" name="Event" id="event">
+          <br><label for="Number_of_Guests"></label>Number of guests
+          <input type="number" name="Number_of_Guests" id="number_of_guests">
+          <br><label for="Room_Location"></label>Room location
+          <input type="text" name="Room_Location" id="room_location">
+          <br><label for="Description"></label>Description
+          <input type="text" name="Description" id="description">
+          <input type="submit" value="Add Event">
+        </form>
+
+
+        {% for event in events %}  
+        <div>
+          <p>
+            <b>Date:</b> {{ event.date }}, {{ event.event_name }} |
+            {{ event.number_of_guests }}, {{ event.room_location }} |
+            {{ event.description }}
+          </p>
+        </div>
+        {% endfor %}
+    </body>
+</html>
+
+<!-- date, event_name, number_of_guests, room_location, description -->
